@@ -1,15 +1,15 @@
-public class HelloWorld {
+public class HelloWorld{
     public static void main(String[] args) {
-        // Check if command-line argument exists to avoid ArrayIndexOutOfBoundsException
-        if (args.length == 2) {
-            System.out.println("Hello, World!");
-            return;
+        String name;
+
+        // Check if command-line argument was provided
+        if (args.length > 0) {
+            name = args[0];  // Use provided name
+        } else {
+            name = "World";  // Use default value
         }
 
-        // Read the name from the first command-line argument (args[0])
-        String name = "om";
-
-        // Display personalized greeting using string concatenation
+        // Display personalized greeting
         System.out.println("Hello, " + name + "!");
     }
 }
