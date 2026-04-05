@@ -1,16 +1,24 @@
 public class HelloWorld {
     public static void main(String[] args) {
-        String names;
+        StringBuilder nameBuilder = new StringBuilder();
 
-        // Check if command-line arguments were provided
-        if (args.length > 0) {
-            // Join all names with ", " using String.join()
-            names = String.join(", ", args);
+        // Check if no arguments provided
+        if (args.length == 0) {
+            nameBuilder.append("World");
         } else {
-            names = "World";  // Default value
+            // Enhanced for loop: append ALL names + ", " (including last one)
+            for (String name : args) {
+                nameBuilder.append(name).append(", ");
+            }
+
+            // Remove trailing ", " using substring() - last 2 characters
+            if (nameBuilder.length() > 2) {
+                nameBuilder.delete(nameBuilder.length() - 2, nameBuilder.length());
+                // OR: nameBuilder.substring(0, nameBuilder.length() - 2);
+            }
         }
 
-        // Display single personalized greeting with all names
-        System.out.println("Hello, " + names + "!");
+        // Display single personalized greeting
+        System.out.println("Hello, " + nameBuilder + "!");
     }
 }
