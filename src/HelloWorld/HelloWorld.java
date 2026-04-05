@@ -1,16 +1,21 @@
 public class HelloWorld {
     public static void main(String[] args) {
-        String names;
+        StringBuilder names = new StringBuilder();
 
-        // Check if command-line arguments were provided
-        if (args.length > 0) {
-            // Join all names with ", " using String.join()
-            names = String.join(", ", args);
+        if (args.length == 0) {
+            names.append("World");
         } else {
-            names = "World";  // Default value
+            boolean first = true;
+            // Enhanced for loop - cleaner syntax!
+            for (String name : args) {
+                if (!first) {
+                    names.append(", ");
+                }
+                names.append(name);
+                first = false;
+            }
         }
 
-        // Display single personalized greeting with all names
         System.out.println("Hello, " + names + "!");
     }
 }
