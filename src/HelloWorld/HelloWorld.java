@@ -1,15 +1,16 @@
-public class HelloWorld{
+public class HelloWorld {
     public static void main(String[] args) {
-        String name;
+        String names;
 
-        // Check if command-line argument was provided
+        // Check if command-line arguments were provided
         if (args.length > 0) {
-            name = args[0];  // Use provided name
+            // Join all names with ", " using String.join()
+            names = String.join(", ", args);
         } else {
-            name = "World";  // Use default value
+            names = "World";  // Default value
         }
 
-        // Display personalized greeting
-        System.out.println("Hello, " + name + "!");
+        // Display single personalized greeting with all names
+        System.out.println("Hello, " + names + "!");
     }
 }
